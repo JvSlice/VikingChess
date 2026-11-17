@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#302019">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <title>Viking Chess — Fetlar Hnefatafl</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div><p class="eyebrow">FETLAR HNEFATAFL · 11 × 11</p><h1>Viking Chess</h1></div>
+      <button class="new-game" id="new-game" type="button">New game</button>
+    </header>
+
+    <section class="status-card" aria-live="polite">
+      <div class="turn-marker" id="turn-marker"></div>
+      <div><p class="status-label" id="status-label">Attackers to move</p><p class="status-detail" id="status-detail">Dark pieces move first</p></div>
+      <div class="capture-count" id="capture-count"></div>
+    </section>
+
+    <section class="board-frame" aria-label="Hnefatafl game board">
+      <div class="board" id="board" role="grid" aria-label="11 by 11 game board"></div>
+    </section>
+
+    <details class="how-to">
+      <summary>How to play</summary>
+      <div class="how-content">
+        <p><strong>Dark attackers move first.</strong> Tap one of your pieces, then a highlighted square. Pieces slide any distance in a straight line; they cannot jump over pieces.</p>
+        <p>Attackers win by capturing the king or surrounding every defender. The light side wins when the king reaches a corner. Other pieces are captured by sandwiching them between enemies or a hostile refuge square.</p>
+        <p>The king alone may stop on the center throne or a corner. The throne is passable when empty. Three repeated positions are a draw.</p>
+      </div>
+    </details>
+    <footer>Two players · one device</footer>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>

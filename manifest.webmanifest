@@ -1,0 +1,24 @@
+{
+  "name": "Viking Chess — Fetlar Hnefatafl",
+  "short_name": "Viking Chess",
+  "description": "A two-player game of Fetlar Hnefatafl.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#302019",
+  "theme_color": "#302019",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
