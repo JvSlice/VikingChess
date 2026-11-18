@@ -12,30 +12,59 @@
 </head>
 <body>
   <main class="game-shell">
-    <header class="topbar">
-      <div><p class="eyebrow">FETLAR HNEFATAFL · 11 × 11</p><h1>Viking Chess</h1></div>
-      <button class="new-game" id="new-game" type="button">New game</button>
-    </header>
-
-    <section class="status-card" aria-live="polite">
-      <div class="turn-marker" id="turn-marker"></div>
-      <div><p class="status-label" id="status-label">Attackers to move</p><p class="status-detail" id="status-detail">Dark pieces move first</p></div>
-      <div class="capture-count" id="capture-count"></div>
+    <section id="setup-page" class="setup-page">
+      <header class="topbar setup-heading">
+        <div><p class="eyebrow">FETLAR HNEFATAFL · 11 × 11</p><h1>Viking Chess</h1></div>
+      </header>
+      <section class="setup-card" aria-labelledby="setup-title">
+        <p class="eyebrow">NEW MATCH</p>
+        <h2 id="setup-title">Choose how to play</h2>
+        <div class="setup-options">
+          <label>Play mode
+            <select id="play-mode"><option value="two">Two players</option><option value="computer">Vs computer</option></select>
+          </label>
+          <label id="side-choice" hidden>You play
+            <select id="human-side"><option value="A">Attackers</option><option value="D">Defenders</option></select>
+          </label>
+          <label id="difficulty-choice" hidden>Difficulty
+            <select id="difficulty"><option value="easy">Easy</option><option value="medium" selected>Medium</option><option value="hard">Hard</option></select>
+          </label>
+        </div>
+        <button class="launch-game" id="launch-game" type="button">Start game</button>
+      </section>
+      <details class="how-to" open>
+        <summary>How to play</summary>
+        <div class="how-content">
+          <p><strong>Dark attackers move first.</strong> Tap one of your pieces, then a highlighted square. Pieces slide any distance in a straight line; they cannot jump over pieces.</p>
+          <p>Attackers win by capturing the king or surrounding every defender. The light side wins when the king reaches a corner. Other pieces are captured by sandwiching them between enemies or a hostile refuge square.</p>
+          <p>The king alone may stop on the center throne or a corner. The throne is passable when empty. Three repeated positions are a draw.</p>
+        </div>
+      </details>
+      <footer>Two players · one device</footer>
     </section>
 
-    <section class="board-frame" aria-label="Hnefatafl game board">
-      <div class="board" id="board" role="grid" aria-label="11 by 11 game board"></div>
+    <section id="game-page" class="game-page" hidden>
+      <header class="topbar">
+        <div><p class="eyebrow">FETLAR HNEFATAFL · 11 × 11</p><h1>Viking Chess</h1></div>
+        <button class="new-game" id="new-game" type="button">New Game</button>
+      </header>
+      <section class="status-card" aria-live="polite">
+        <div class="turn-marker" id="turn-marker"></div>
+        <div><p class="status-label" id="status-label">Attackers to move</p><p class="status-detail" id="status-detail">Dark pieces move first</p></div>
+        <div class="capture-count" id="capture-count"></div>
+      </section>
+      <section class="board-frame" aria-label="Hnefatafl game board">
+        <div class="board" id="board" role="grid" aria-label="11 by 11 game board"></div>
+      </section>
     </section>
-
-    <details class="how-to">
-      <summary>How to play</summary>
-      <div class="how-content">
-        <p><strong>Dark attackers move first.</strong> Tap one of your pieces, then a highlighted square. Pieces slide any distance in a straight line; they cannot jump over pieces.</p>
-        <p>Attackers win by capturing the king or surrounding every defender. The light side wins when the king reaches a corner. Other pieces are captured by sandwiching them between enemies or a hostile refuge square.</p>
-        <p>The king alone may stop on the center throne or a corner. The throne is passable when empty. Three repeated positions are a draw.</p>
-      </div>
-    </details>
-    <footer>Two players · one device</footer>
+    <dialog id="restart-dialog" class="restart-dialog">
+      <form method="dialog">
+        <p class="eyebrow">NEW MATCH</p>
+        <h2>Leave this game?</h2>
+        <p>Your current match will end. You can review or change the setup before starting again.</p>
+        <div class="dialog-actions"><button value="cancel" class="keep-playing">Keep playing</button><button id="confirm-new-game" value="setup" class="new-game">New Game</button></div>
+      </form>
+    </dialog>
   </main>
   <script type="module" src="game.js"></script>
 </body>
